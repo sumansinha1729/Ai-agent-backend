@@ -1,10 +1,15 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import agentRouter from './routes/agent';
+
 dotenv.config();
 
 const app=express();
 app.use(bodyParser.json());
+
+
+app.use('/agent',agentRouter);
 
 app.get('/',(req,res)=>{
     res.send('AI agent backend is running!');
