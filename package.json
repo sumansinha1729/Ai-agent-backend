@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && cpx \"src/rag/files/**/*\" dist/rag/files",
     "start": "node dist/index.js",
-    "dev":"nodemon --watch src --exec ts-node src/index.ts",
-    "build":"tsc"
+    "dev": "nodemon --watch src --exec ts-node src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -16,11 +15,12 @@
     "body-parser": "^2.2.0",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "openai": "^5.11.0"
+    "openai": "^5.12.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
     "@types/node": "^24.2.0",
+    "cpx": "^1.5.0",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"

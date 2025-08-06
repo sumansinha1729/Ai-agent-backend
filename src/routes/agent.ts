@@ -5,12 +5,13 @@ import { queryDocs } from "../rag";
 import { mathplugin } from "../plugins/math";
 import { weatherplugin } from "../plugins/weather";
 import OpenAI from "openai";
+import { Request, Response } from "express";
 
 
 
 const router=Router();
 
-router.post('/message',async(req,res)=>{
+router.post('/message',async(req: Request, res: Response)=>{
     const {message,session_id}=req.body;
     if(!message || !session_id) return res.status(400).json({error:'message and session_id required'});
     

@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import agentRouter from './routes/agent';
 import { loadDocs } from './rag';
-
+import { Request, Response } from "express";
 dotenv.config();
 
 const app=express();
@@ -15,7 +15,7 @@ loadDocs();  // load and index markdown docs at startup
 
 app.use('/agent',agentRouter);
 
-app.get('/',(req,res)=>{
+app.get('/',(req:Request,res:Response)=>{
     res.send('AI agent backend is running!');
 });
 
